@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script|Shadows+Into+Light');
+
+body {
+    /*
+  background-color:#000000;
+  color:white;
+*/
+    background: url("http://res.cloudinary.com/dejyp5iex/image/upload/v1508120127/maxresdefault_wz500x.jpg") no-repeat center fixed;
+
+}
+
+#main_container {}
+
+.modal-title {
+    color: black;
+}
+
+header {
+    text-align: center;
+}
+
+header h1 {
+    font-size: 5em;
+    font-family: 'Shadows Into Light', cursive;
+    font-family: 'Dancing Script', cursive;
+    color: white;
+    text-shadow: 0px 0px 5px black;
+}
+
+#mini-titre {
+    font-family: 'Shadows Into Light', cursive;
+    font-family: 'Dancing Script', cursive;
+    font-size:3em;
+    color: white;
+    text-shadow: 0px 0px 3px black;
+}
+
+#quote-box {
+    display: block;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 50%;
+    margin-top: 6%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2%;
+    border-radius: 2px;
+    text-align: center;
+}
+
+#quote {
+    height: 60%;
+    margin-top: 2%;
+    color: black;
+    font-size: 3em;
+    font-family: 'Josefin Slab', serif;
+    font-weight: bold;
+}
+
+#all-buttons {
+    margin-top: 10%;
+}
+
+
+#share-quote-buttons button {
+    background-color: black;
+    border: none;
+    color: white;
+    text-align: center;
+}
+
+#share-quote-buttons button:active {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    text-align: center;
+}
+
+
+
+#new-quote-button {
+    background-color: black;
+    border: none;
+    color: white;
+}
+
+#new-quote-button:active {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    text-align: center;
+}
+
+#copyright {
+
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0px 0px 3px gray;
+    margin-top:1%;
+}
+
+#copyright a,
+#copyright a:visited,
+#copyright a:active {
+    color: rgb(25, 255, 98);
+    font-size: 1em;
+    text-shadow: none;
+    background-color: black;
+    padding:0.2%;
+}
+
+
+@media (max-width: 900px) {
+
+    h1 p {
+
+        font-size: 0.5em;
+    }
+
+    #quote-box {
+        width: 100%;
+    }
+
+
+    #share-quote-buttons,
+    #select-proverb-button {
+        width: 50%;
+        display: block;
+        margin-top: 0.5%;
+    }
+
+    button {
+        width: 100%;
+        display: block;
+        margin-top: 0.5%;
+    }
+
+}
