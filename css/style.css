@@ -20,17 +20,18 @@ header {
 }
 
 header h1 {
-    font-size: 5em;
+    font-size: 6em;
     font-family: 'Shadows Into Light', cursive;
     font-family: 'Dancing Script', cursive;
     color: white;
-    text-shadow: 0px 0px 5px black;
+    text-shadow: 0px 0px 3px black;
+
 }
 
 #mini-titre {
     font-family: 'Shadows Into Light', cursive;
     font-family: 'Dancing Script', cursive;
-    font-size:3em;
+    font-size: 2em;
     color: white;
     text-shadow: 0px 0px 3px black;
 }
@@ -54,7 +55,9 @@ header h1 {
     font-size: 3em;
     font-family: 'Josefin Slab', serif;
     font-weight: bold;
+
 }
+
 
 #all-buttons {
     margin-top: 10%;
@@ -96,7 +99,8 @@ header h1 {
     font-weight: bold;
     color: white;
     text-shadow: 0px 0px 3px gray;
-    margin-top:1%;
+    margin-top: 1%;
+
 }
 
 #copyright a,
@@ -106,33 +110,37 @@ header h1 {
     font-size: 1em;
     text-shadow: none;
     background-color: black;
-    padding:0.2%;
+    padding: 0.6%;
 }
 
 
-@media (max-width: 900px) {
-
-    h1 p {
-
-        font-size: 0.5em;
-    }
-
-    #quote-box {
-        width: 100%;
-    }
 
 
-    #share-quote-buttons,
-    #select-proverb-button {
-        width: 50%;
-        display: block;
-        margin-top: 0.5%;
-    }
 
-    button {
-        width: 100%;
-        display: block;
-        margin-top: 0.5%;
-    }
+
+@media (max-width: 900px){
+  
+  h1 p{
+
+    font-size:0.5em;
+  }
+  
+  #quote-box{
+    width:100%;
+  }
+
+  
+  #share-quote-buttons,#select-proverb-button{
+    display:block;
+    width:100%;
+     display:block;
+    margin-top:0.5%;
+  }
+  
+       button{
+    width:100%;
+    display:block;
+    margin-top:0.5%;
+  }
 
 }

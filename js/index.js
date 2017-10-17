@@ -74,42 +74,104 @@ for(var i=0;i<pwoveb.length;i++)
    tableau.appendChild(td);
  }*/
 
-$(document).ready(function(){
-  
- 
+ window.fbAsyncInit = function() {
+     FB.init({
+       appId      : '138965350070415',
+       xfbml      : true,
+       version    : 'v2.10'
+     });
+     FB.AppEvents.logPageView();
+   };
 
+   (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+ function fb_post(){
+     alert("click!");
+     login();
+     getinfo();
+     post();
+ }
+
+
+$(document).ready(function(){
+
+
+$("#share-facebook").click(function(){
+    alert('fb button clicked');
+
+    function login(){
+    FB.login(function(response){
+      if(response.status==="connected")
+      {
+        alert("Connected");
+      }
+      else if(response.status==="not_authorized"){
+    	alert("not authorized");
+      }
+      else{
+        alert("Other behavior");
+      }
+
+    },{scope:'publish_actions'});
+
+
+    }
+
+
+    $("#share-facebook").click(function(){
+        alert("button clicked!");
+    });
+
+    function getinfo(){
+        FB.api('me','GET',{fields:'firstname,lastname,name,id'},function (response){
+            alert(response);
+        });
+    }
+
+    function post(){
+        FB.api('me/feed','post',{message:'my first status..'},function(response){
+            alert(JSON.stringify(response));
+        });
+    }
+})
+
+//===========================
  $("body").addClass("animated jello");
-  
- $("#mini-titre p span").html(pwoveb.length-5); 
-  
+
+ $("#mini-titre p span").html(pwoveb.length-5);
+
 var idPwoveb=Math.floor(Math.random()*pwoveb.length);
 
 $("#quote p").html('"'+pwoveb[idPwoveb]+'"');
-
-
 $("#new-quote-button").click(function(){
   idPwoveb=Math.floor(Math.random()*pwoveb.length);
   $("#quote p").html('"'+pwoveb[idPwoveb]+'"');
   $("#quote p").addClass("animated lightSpeedIn");
-  
+
   $('#quote p').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function (){
     $("#quote p").removeClass("animated lightSpeedIn");
   });
 
 //map anime button twitter a pou endike moun nan fol tweet
   $("#share-twitter").addClass("animated bounce");
-  
+
   $('#share-twitter').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function (){
     $("#share-twitter").removeClass("animated bounce");
   });
-  
+
 });
 
 $("#share-twitterlink").click(function(){
 var	textToTweet=pwoveb[idPwoveb]+" #inivekreyol #kreyolpale #kreyolkonpran\nPATAJE PWOVEB PAW:www.inivekreyol.com";
 	 var twtLink = 'https://twitter.com/home?status='+encodeURIComponent(textToTweet);
     $(this).attr("href", twtLink);
-  
+
   // window.open(twtLink,'_blank');
 })
 
