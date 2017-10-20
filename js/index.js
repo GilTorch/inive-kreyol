@@ -28,7 +28,7 @@ var pwoveb=[
 "Gran nèg se leta.",
 "Si pa gen sitirè pa ka gen vòl",
 "Kochon manje santiman-l nan po bannan-n",
-"Pito dlo-a tonbe, klabas la pa kraze",
+"Pito dlo-a tonbe, kaLbas la pa kraze",
 "Santi bon koute chè.",
  "Bèf di li pral sal savann, se ke-l li sal.",
 "Bèf ki gen ke long, pa janbe dife.",
@@ -37,7 +37,6 @@ var pwoveb=[
 "Bondye pouse mouch pou bèf san ke.",
 "Ou kouche sou po bèf la, wap pale-l mal.",
 "Kochon manje santiman-l nan po bannan-n.",
-"Pito dlo-a tonbe, kalbas la pa kraze.",
 "Santi bon koute chè.",
 "Bèl cheve pa lajan.",
 "Fe wè pa dire.",
@@ -74,42 +73,116 @@ for(var i=0;i<pwoveb.length;i++)
    tableau.appendChild(td);
  }*/
 
-$(document).ready(function(){
-  
- 
+ window.fbAsyncInit = function() {
+     FB.init({
+       appId      : '138965350070415',
+       xfbml      : true,
+       version    : 'v2.10'
+     });
+     FB.AppEvents.logPageView();
+   };
 
- $("body").addClass("animated jello");
-  
- $("#mini-titre p span").html(pwoveb.length-5); 
-  
+   (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+ function fb_post(){
+     alert("click!");
+     login();
+     getinfo();
+     post();
+ }
+
+
+$(document).ready(function(){
+//
+// $("#share-facebook").click(function(){
+//     alert('fb button clicked');
+//
+//     function login(){
+//     FB.login(function(response){
+//       if(response.status==="connected")
+//       {
+//         alert("Connected");
+//       }
+//       else if(response.status==="not_authorized"){
+//     	alert("not authorized");
+//       }
+//       else{
+//         alert("Other behavior");
+//       }
+//
+//     },{scope:'publish_actions'});
+//
+//
+//     }
+//
+//
+//     $("#share-facebook").click(function(){
+//         alert("button clicked!");
+//     });
+//
+//     function getinfo(){
+//         FB.api('me','GET',{fields:'firstname,lastname,name,id'},function (response){
+//             alert(response);
+//         });
+//     }
+//
+//     function post(){
+//         FB.api('me/feed','post',{message:'my first status..'},function(response){
+//             alert(JSON.stringify(response));
+//         });
+//     }
+// })
+$("body").addClass("animated jello");
+for(var i=0;i<pwoveb.length;i++)
+{
+  var currentProverb=pwoveb[i];
+  var p=$("<p></p>").html(pwoveb[i]);
+  p.attr("data-toggle","modal");
+  p.attr("data-target","#myModal");
+  p.attr("id","listedPwoveb");
+  p.click(function(){
+    $("#quote p").html('"'+currentProverb+'"');
+    $("#quote p").addClass("animated lightSpeedIn");
+
+  });
+  $(".modal-body").append(p);
+}
+
+ $("#mini-titre p span").html(pwoveb.length-5);
+
 var idPwoveb=Math.floor(Math.random()*pwoveb.length);
 
 $("#quote p").html('"'+pwoveb[idPwoveb]+'"');
-
-
 $("#new-quote-button").click(function(){
   idPwoveb=Math.floor(Math.random()*pwoveb.length);
   $("#quote p").html('"'+pwoveb[idPwoveb]+'"');
   $("#quote p").addClass("animated lightSpeedIn");
-  
+
   $('#quote p').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function (){
     $("#quote p").removeClass("animated lightSpeedIn");
   });
 
 //map anime button twitter a pou endike moun nan fol tweet
   $("#share-twitter").addClass("animated bounce");
-  
+
   $('#share-twitter').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function (){
     $("#share-twitter").removeClass("animated bounce");
   });
-  
+
 });
 
 $("#share-twitterlink").click(function(){
 var	textToTweet=pwoveb[idPwoveb]+" #inivekreyol #kreyolpale #kreyolkonpran\nPATAJE PWOVEB PAW:www.inivekreyol.com";
 	 var twtLink = 'https://twitter.com/home?status='+encodeURIComponent(textToTweet);
     $(this).attr("href", twtLink);
-  
+
+
   // window.open(twtLink,'_blank');
 })
 
